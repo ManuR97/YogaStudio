@@ -7,8 +7,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative order-2 md:order-1">
             <div className="bg-gradient-to-br from-purple-200 to-pink-200 rounded-3xl h-96 flex items-center justify-center">
-              {/* Hier dein Foto einfügen: */}
-              {/* <img src="/dein-foto.jpg" alt="Über mich" className="rounded-3xl h-96 w-full object-cover" /> */}
+              {<img src="../Yoga-Bild.webp" alt="Über mich" className="rounded-3xl h-96 w-full object-cover" />}
               <p className="text-gray-500 text-center px-8">Dein Foto hier</p>
             </div>
           </div>
