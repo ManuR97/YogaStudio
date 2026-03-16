@@ -2,23 +2,35 @@ import React from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import CookieBanner from "./components/CookieBanner";
+import "./App.css";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Courses from "./pages/Courses";
 import Booking from "./pages/Booking";
 import Contact from "./pages/Contact";
-import Legal from "./pages/Legal";
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-pink-50 to-purple-50">
+    <div className="min-h-screen">
       <Header />
-      <Home />
-      <About />
-      <Courses />
-      <Booking />
-      <Contact />
+      <main>
+        <div id="home">
+          <Home />
+        </div>
+        <div id="about">
+          <About />
+        </div>
+        <div id="courses">
+          <Courses />
+        </div>
+        <div id="booking">
+          <Booking />
+        </div>
+        <div id="contact">
+          <Contact />
+        </div>
+      </main>
       <Footer />
       <CookieBanner />
     </div>
