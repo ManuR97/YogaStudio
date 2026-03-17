@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import CookieBanner from "./components/CookieBanner";
+import "./App.css";
 
-function App() {
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Courses from "./pages/Courses";
+import Booking from "./pages/Booking";
+import Contact from "./pages/Contact";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen">
+      <Header />
+      <main>
+        <div id="home">
+          <Home />
+        </div>
+        <div id="about">
+          <About />
+        </div>
+        <div id="courses">
+          <Courses />
+        </div>
+        <div id="booking">
+          <Booking />
+        </div>
+        <div id="contact">
+          <Contact />
+        </div>
+      </main>
+      <Footer />
+      <CookieBanner />
     </div>
   );
-}
+};
 
 export default App;

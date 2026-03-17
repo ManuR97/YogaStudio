@@ -1,46 +1,184 @@
-# Getting Started with Create React App
+# 🧘 Yoga Studio - Webseite
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Eine moderne, einfache Webseite für dein Yoga-Studio ohne komplexe Infrastruktur.
 
-## Available Scripts
+## ✨ Features
 
-In the project directory, you can run:
+- **Responsive Design** - Funktioniert auf allen Geräten (Mobile, Tablet, Desktop)
+- **Kurs-Übersicht** - Zeige deine Kurse und Angebote
+- **Einfaches Kontaktformular** - Besucher können sich für Kurse anmelden
+- **Google Kalender Integration** - Verwalte deine Kurstermine über Google Kalender
+- **Keine Datenbank nötig** - Alles läuft lokal im Browser
+- **Sauberer Code** - React + TypeScript + Tailwind CSS
 
-### `npm start`
+## 🚀 Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Voraussetzungen
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Node.js 16+ und npm installiert
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+# 1. Dependencies installieren
+npm install
 
-### `npm run build`
+# 2. Entwicklungsserver starten
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Die App läuft dann unter [http://localhost:3000](http://localhost:3000)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📋 Struktur
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+src/
+├── pages/
+│   ├── Home.tsx        - Startseite mit Hero
+│   ├── About.tsx       - Über uns
+│   ├── Courses.tsx     - Kurs-Katalog
+│   ├── Booking.tsx     - Kontaktformular mit Google Kalender Integration
+│   └── Contact.tsx     - Kontakt/Impressum
+├── components/
+│   ├── Header.tsx      - Navigation
+│   ├── Footer.tsx      - Footer
+│   └── CookieBanner.tsx - Cookie Consent
+└── App.tsx             - Hauptkomponente
+```
 
-### `npm run eject`
+## � Google Sheets einrichten (Kursverwaltung)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Deine Kurse werden automatisch von einer Google Sheets-Tabelle geladen. So kannst du die Kurse jederzeit aktualisieren ohne den Code zu ändern.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Schritt-für-Schritt Setup:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Siehe:** [📘 GOOGLE_SHEETS_SETUP.md](./GOOGLE_SHEETS_SETUP.md) für detaillierte Anleitung
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Kurz zusammengefasst:**
+1. Google Sheets-Tabelle mit deinen Kursen erstellen
+2. Google Cloud API konfigurieren (kostenlos)
+3. API-Key und Sheet-ID in `src/data/coursesConfig.ts` eingeben
+4. Website neu laden - Kurse werden automatisch angezeigt!
 
-## Learn More
+**Beispiel Tabelle (Google Sheets):**
+```
+Kursname    | Beschreibung                   | Dauer  | Level
+------------|--------------------------------|--------|----------
+Hatha Yoga  | Sanfte Dehnübungen            | 60 Min | Anfänger
+Vinyasa Flow| Dynamische Sequenzen          | 75 Min | Mittelstufe
+Stuhl-Yoga  | Yoga im Sitzen für Senioren   | 45 Min | Anfänger
+Yin Yoga    | Tiefe Entspannung             | 90 Min | Alle Level
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🗓️ Google Kalender verlinken
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Erstelle einen Google Kalender für deine Kurse
+2. Trage deine Kurstermine ein
+3. Teile den Kalender öffentlich
+4. Besucher können im Kontaktformular die verfügbaren Zeiten sehen
+
+## 📧 Kontaktformular konfigurieren
+
+Das Kontaktformular auf der Booking-Seite sammelt Anfragen. Aktuell werden Daten nur im Browser gespeichert.
+
+### E-Mail-Versand einrichten (Optional):
+
+Wenn du E-Mails für Anfragen bekommen möchtest, nutze eine dieser Optionen:
+
+**Option 1: Formspree (Empfohlen)**
+1. Gehe zu [formspree.io](https://formspree.io)
+2. Registriere dich kostenlos
+3. Erstelle ein neues Formular
+4. Kopiere deine Form-ID (z.B. `f_abc123def`)
+5. Aktualisiere `src/pages/Booking.tsx` - Zeile nach `<form onSubmit=...` in:
+```typescript
+<form onSubmit={(e) => {
+  handleSubmit(e);
+  // Sende Daten auch zu Formspree
+  fetch('https://formspree.io/f/YOUR_FORM_ID', {
+    method: 'POST',
+    body: JSON.stringify(formData),
+    headers: { 'Content-Type': 'application/json' }
+  });
+}}
+```
+
+**Option 2: Netlify Forms**
+Wenn du auf Netlify hostest, nutze deren kostenlosen Form-Service automatisch.
+
+**Option 3: Backend-Service**
+- SendGrid, Mailgun, oder eigenes Backend einbinden
+
+### Oder manuell:
+Besucher schreiben dir E-Mails direkt - du antwortest persönlich. 💌
+
+## 🎨 Design anpassen
+
+Das Projekt nutzt **Tailwind CSS** für Styling:
+
+- Farben in `tailwind.config.js` anpassen
+- CSS-Dateien in `src/` bearbeiten
+
+## 📱 Build für Production
+
+```bash
+# Production-Build erstellen
+npm run build
+
+# Folder "build/" ist ready für Deployment
+```
+
+## 🔒 Datenschutz & DSGVO
+
+- ✅ Keine Datenbank - Keine persönlichen Daten lokal gespeichert
+- ✅ Keine Google Analytics
+- ✅ Cookie Banner - DSGVO konform
+- ⚠️ Impressum & Datenschutz erforderlich (bearbeite Contact.tsx)
+
+## 🚀 Deployment Optionen
+
+### Vercel (Empfohlen)
+```bash
+npm install -g vercel
+vercel
+```
+
+### Netlify
+```bash
+npm run build
+# Lade "build/" Folder auf netlify.com hoch
+```
+
+### GitHub Pages
+```bash
+npm run build
+# Push build/ zu deinem Repository
+```
+
+## 📝 Nächste Schritte
+
+1. **Google Kalender** - Erstelle Kalender für deine Kurse und verlinke sie
+2. **Formspree** - Richte einen Form-Handler ein für E-Mails
+3. **Impressum** - Bearbeite `src/pages/Contact.tsx` mit deinen Kontaktdaten
+4. **Content** - Personalisiere alle Seiten mit deinen Kursen und Infos
+5. **Deployment** - Hoste die App auf Vercel, Netlify oder GitHub Pages
+
+## 🆘 Troubleshooting
+
+### npm install Fehler
+```bash
+rm -r node_modules package-lock.json
+npm install
+```
+
+### App lädt nicht
+- Browser Console öffnen (F12) - Fehler ansehen
+- Port 3000 überprüfen
+
+### Tailwind CSS funktioniert nicht
+- Neustarten: `npm start`
+- Cache löschen: `npm run build`
+
+---
+
+**Viel Spaß mit deiner Yoga-Studio Webseite! 🧘‍♀️**
