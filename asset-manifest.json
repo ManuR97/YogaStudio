@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/YogaStudio/static/css/main.53e7bc14.css",
-    "main.js": "/YogaStudio/static/js/main.ee68c20e.js",
+    "main.js": "/YogaStudio/static/js/main.5d2203f3.js",
     "static/js/453.a66d13ba.chunk.js": "/YogaStudio/static/js/453.a66d13ba.chunk.js",
     "static/media/portrait.jpeg": "/YogaStudio/static/media/portrait.93d46af22ac2f9947f18.jpeg",
-    "static/media/Titelbild.jpeg": "/YogaStudio/static/media/Titelbild.6f81c2736ad99413c85f.jpeg",
+    "static/media/WhatsApp Image 2026-03-15 at 14.10.17 (1).jpeg": "/YogaStudio/static/media/WhatsApp Image 2026-03-15 at 14.10.17 (1).e07ca0603aac37176d89.jpeg",
     "index.html": "/YogaStudio/index.html",
     "main.53e7bc14.css.map": "/YogaStudio/static/css/main.53e7bc14.css.map",
-    "main.ee68c20e.js.map": "/YogaStudio/static/js/main.ee68c20e.js.map",
+    "main.5d2203f3.js.map": "/YogaStudio/static/js/main.5d2203f3.js.map",
     "453.a66d13ba.chunk.js.map": "/YogaStudio/static/js/453.a66d13ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.53e7bc14.css",
-    "static/js/main.ee68c20e.js"
+    "static/js/main.5d2203f3.js"
   ]
 }
