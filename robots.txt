@@ -1,4 +1,4 @@
-# Divinesoul Yoga - robots.txt
+# Divine Soul Yoga - robots.txt
 # Crawling-Regeln für Suchmaschinen
 
 User-agent: *
