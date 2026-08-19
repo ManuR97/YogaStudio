@@ -1,0 +1,10 @@
+# Divinesoul Yoga - robots.txt
+# Crawling-Regeln für Suchmaschinen
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/*
+
+# Sitemap
+Sitemap: https://divinesoul-yoga.at/sitemap.xml

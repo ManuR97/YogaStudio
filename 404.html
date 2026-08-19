@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>Divinesoul Yoga</title>
+    <script>
+      (function () {
+        var segmentCount = 1;
+        var l = window.location;
+        var baseUrl = l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/';
+        var redirectPath = l.pathname.slice(baseUrl.length - 1) + l.search + l.hash;
+        sessionStorage.setItem('gh-pages-redirect', redirectPath);
+        window.location.replace(baseUrl);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
